@@ -1,30 +1,3 @@
-"""
-Metabarcoding pipeline based on EMU.
-To run:
-on thor: source /scratch/thdelcourt/metabarcoding/20250704/scripts/virtenv/EMU_ppl_py3.10/bin/activate
-snakemake --cores 5 -s ../../../scripts/TDscripts/projects/metabarcoding/EMU_pipeline/pipeline.smk --configfile ./config_template.yaml --config workdir=/scratch/thdelcourt/metabarcoding/20250704/20250705_test_emu/test_ppl/Hoodia_gordonii_line1_3 sample_name=Hoodia_gordonii_line_1_20240813_1604_X1_ARW146_b6037b07 minQ=15 --use-conda
-requires a virtual environment containing:
-- snakemake
-- SeqIO
-- tabulate
-- plotly
-- numpy
-"""
-
-
-
-# ITS2_barcode_positions = {
-#     79: "T",
-#     87: "A",
-#     122: "C",
-#     126: "G",
-#     158: "A"}
-
-# dict_species_to_group = {'41737': 1, '41738': 1, '22217': 2, '22216': 2, '22218': 3}
-# dict_groups_values = {1: ['41737', '41738'], 2:['22217', '22216'], 3:['22218']}
-# dict_species_to_group = {'41738': 1}
-# dict_groups_values = {1: ['41738']}
-
 # Load config variables
 workdir : config["workdir"]
 
@@ -70,16 +43,7 @@ rule pre_filtQ_QC_nanoplot:
     shell:
         "ml load nanoplot ; "
         "NanoPlot -o pre_filtQ_QC --fastq {input} --tsv_stats -t 10 --raw --store  --no_static"
-#
-# rule pre_filtQ_QC_seqkit:
-#     input:
-#         in_fastq_path
-#     output:
-#         txt="pre_filtQ_QC/seqkit_stats.txt"
-#     threads: 1
-#     shell:
-#         "ml load seqkit ; "
-#         "seqkit stats {input} > {output.txt} "
+
 
 rule plot_pre_filtQ_QC:
     input:
