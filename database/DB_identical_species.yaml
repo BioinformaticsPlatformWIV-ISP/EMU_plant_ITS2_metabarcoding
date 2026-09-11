@@ -1,0 +1,14 @@
+{1: ['22711', '107036', '107037', '107038', '107034', '107035', '42489', '22712', '42488'], }
+
+#example with multiple groups: {1: ['41737', '41738'], 2:['22217', '22216'], 3:['22218']}
+#
+#the following are in 1 group:
+#    Hoodia_juttae
+#    Hoodia_pedicellate
+#    Hoodia_pilifera
+#    Hoodia_ruschii
+#    Hoodia_currorrii
+#    Hoodia_parviflora
+#    Hoodia_gordonii
+#    Hoodia_alstonii
+#    Hoodia_officinalis

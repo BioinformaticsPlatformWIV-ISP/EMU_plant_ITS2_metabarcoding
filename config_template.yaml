@@ -1,0 +1,52 @@
+# work directory
+workdir : ""
+#sample name: should be the same as fastq file name
+sample_name : ""
+# minimal average phred score over a read to keep the read
+minQ : 20
+# input fastq directory
+in_fastq_dir : ""
+# Path to primer definition fasta file for trimming (eg "/path/to/primers_ITS2.fa")
+primers_path : ""
+
+## Read trimming and filtering ##
+# ITS2 amplicon expected length pre-trimming: 450 bp + ~50bp
+median_len_ITS2 : 500
+# window of expected amplicon lengths (sum of both ends => eg. 450bp +-50bp => [400;500])
+window_size : 100 
+# expected length of trimmed nucleotides (~25bp on both sides)
+trimmed_length : 50 
+
+
+## Species filtering ## 
+# Minimal abundance threshold
+min_abundance : 0.002
+# Minimal median read assignment probability
+min_median_rap : 0.00025
+# Minimal realignment depth to a reference sequence 
+min_real_depth : 100
+# Maximum number of differences between consensus and reference sequences
+max_diff_cons_ref: 4
+
+
+### Constants ###
+## SNP barcode ##
+# Path to reference fasta file
+path_to_Hoodia_SNP_barcode_ref : "/path/to/pipeline/installation/SNP_barcode/reference_Hoodia_ruschii_SNP_barcode.fasta"
+# name of reference used for Hoodia SNP-barcode definition as in fasta file
+Hoodia_ref : "Hoodia_ruschii_line_1_ITS2_ONT_all_1"
+# SNP barcode nucleotide definitions
+path_to_ITS2_barcode_positions: "/path/to/pipeline/installation/database/SNP_barcode/ITS2_barcode_definition.yaml"
+
+## Database ##
+# Path to EMU-formated database directory
+EMU_DB_path : "/path/to/pipeline/installation/database" 
+ref_seqs_DB_path : "/path/to/pipeline/installation/database/refseqs" 
+sequences_dict : "/path/to/pipeline/installation/database/sequences_dict.pckl" 
+taxonomy_pickle : "/path/to/pipeline/installation/database/taxonomy.pickle" 
+# indiscernible species in the Hoodia genus 
+path_to_identical_species_DB: "/path/to/pipeline/installation/database/DB_identical_species.yaml"
+
+# path to ViralMSA executable
+path_to_ViralMSA : "/path/to/ViralMSA/ViralMSA.py"
+
